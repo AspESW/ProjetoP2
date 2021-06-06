@@ -1,6 +1,2 @@
-venv/bin
-venv/build
-venv/include
-venv/lib
-venv/local
+venv/
 *.pyc
