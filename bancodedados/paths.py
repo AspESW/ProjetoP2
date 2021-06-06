@@ -1,0 +1,5 @@
+BIO = './bancodedados/biometrias/'
+USU = './bancodedados/usuarios/'
+VACCPF = './bancodedados/vacinados/cpf/'
+VACBIO = './bancodedados/vacinados/biometria/'
+VACI = './bancodedados/vacinas/'
