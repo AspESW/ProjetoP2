@@ -1,3 +1,5 @@
 from controller import Controlador
 
-controlador = Controlador()
+if __name__ == '__main__':
+    controlador = Controlador()
+    controlador.iniciar()

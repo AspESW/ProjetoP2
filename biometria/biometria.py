@@ -6,8 +6,9 @@ import json
 class Biometria():
     
     def __init__(self):
-        self.bio = []
         self.path = './bancodedados/biometrias/'
+        self.bio = None
+        self.somaTotal = None
 
     def criar(self, nomeArquivo):
         lista = {}
@@ -17,7 +18,8 @@ class Biometria():
                 lista[i] = line
             json.dump(lista, arquivo, indent=4)   
         resultado = self.gerarCodigo(nomeArquivo)
-        os.rename(f'{self.path}{nomeArquivo}.json', f'{self.path}{resultado}.json')     
+        os.rename(f'{self.path}{nomeArquivo}.json', f'{self.path}{resultado}.json')
+        return resultado      
 
     def leArquivo(self, nomeArquivo):
         listaDeLinhas = []
@@ -32,16 +34,5 @@ class Biometria():
             linha = listaDeLinhas[k]
             soma = sum(linha)
             valorLinhas.append(soma)
-        somaTotal = sum(valorLinhas)
-        return somaTotal
-
-    def pegarNomes(self):
-        files_no_ext = [".".join(f.split(".")[:-1]) for f in os.listdir(path=self.path) if f.endswith('.json')]
-        return files_no_ext
-
-
-b = Biometria()
-for i in range(10):
-    b.criar(f'{i}')
-
-print(b.pegarNomes())
+        self.somaTotal = sum(valorLinhas)
+        return self.somaTotal
