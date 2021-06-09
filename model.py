@@ -141,7 +141,3 @@ class GerenciadorVacina():
 
 class Vacina():
     pass
-
-g = GerenciadorBiometria()
-file_path = filedialog.askopenfilename()
-print(g.compararBiometria(file_path))

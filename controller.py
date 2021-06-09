@@ -1,22 +1,20 @@
 from view import *
 from model import *
-from bancodedados.paths import makePath
 
 class Controlador():
 
     def __init__(self):
-        self.interce = Interface()
+        self.interface = Interface()
         self.gerenciador = GerenciadorPrincipal()
 
     def iniciar(self):
         while True:
             opcaoMenu = (self.interface.menuPrincipal())
             if (opcaoMenu == "1"):
-                Cadrua = self.interface.cadastromoradorrua()
+                self.interface.cadastromoradorrua()
                 self.interface.adicionandobiometria()
                 self.interface.lendobiometria()
                 self.interface.cadastrosucesso()
-
             elif opcaoMenu == "2":
                 Cadmor = self.interface.cadastromoradornormal()
                 self.interface.cadastrando()
@@ -46,3 +44,4 @@ class Controlador():
                 break
             else:
                 self.interface.opcaoInvalida()
+

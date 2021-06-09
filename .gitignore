@@ -1,3 +1,7 @@
 
 venv/
-bancodedados/
+bancodedados/biometrias/
+bancodedados/pessoas/biometria/
+bancodedados/pessoas/cpf/
+bancodedados/usuarios/
+bancodedados/vacinas/
