@@ -1,44 +1,48 @@
 from view import *
-
-Intview = Interface()
+from model import *
+from bancodedados.paths import makePath
 
 class Controlador():
-    Intview.inicializaInterface()
+
+    def __init__(self):
+        self.interce = Interface()
+        self.gerenciador = GerenciadorPrincipal()
 
     def iniciar(self):
         while True:
-            opcaoMenu = (Intview.menuPrincipal())
+            opcaoMenu = (self.interface.menuPrincipal())
             if (opcaoMenu == "1"):
-                Cadrua = Intview.cadastromoradorrua()
-                Intview.adicionandobiometria()
-                Intview.lendobiometria()
-                Intview.cadastrosucesso()
+                Cadrua = self.interface.cadastromoradorrua()
+                self.interface.adicionandobiometria()
+                self.interface.lendobiometria()
+                self.interface.cadastrosucesso()
+
             elif opcaoMenu == "2":
-                Cadmor = Intview.cadastromoradornormal()
-                Intview.cadastrando()
-                Intview.cadastrosucesso()
+                Cadmor = self.interface.cadastromoradornormal()
+                self.interface.cadastrando()
+                self.interface.cadastrosucesso()
             elif opcaoMenu == "3":
-                Cadvacina = Intview.cadastrovacina()
-                Intview.cadastrando()
-                Intview.cadastrosucesso()
+                Cadvacina = self.interface.cadastrovacina()
+                self.interface.cadastrando()
+                self.interface.cadastrosucesso()
             elif opcaoMenu == "4":
-                Buscar = Intview.buscar()
+                Buscar = self.interface.buscar()
                 if Buscar == "1":
-                    Intview.buscarmoradornormal()
-                    Intview.procurando()
+                    self.interface.buscarmoradornormal()
+                    self.interface.procurando()
                 elif Buscar == "2":
-                    Intview.buscarmoradorderua()
-                    Intview.procurando()
+                    self.interface.buscarmoradorderua()
+                    self.interface.procurando()
                 elif Buscar == "3":
-                    Intview.buscarvacinas()
-                    Intview.procurando()
+                    self.interface.buscarvacinas()
+                    self.interface.procurando()
                 elif Buscar == "4":
-                    Intview.carregando()
-                    Intview.procurando()
+                    self.interface.carregando()
+                    self.interface.procurando()
                 else:
-                    Intview.opcaoInvalida()
+                    self.interface.opcaoInvalida()
             elif opcaoMenu == "5":
-                Intview.saindodosistema()
+                self.interface.saindodosistema()
                 break
             else:
-                Intview.opcaoInvalida()
+                self.interface.opcaoInvalida()

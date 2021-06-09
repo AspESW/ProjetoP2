@@ -1,6 +1,4 @@
 from .treenode import TreeNode
-from .queue import Queue
-import random
 
 class AVL():
     
@@ -165,7 +163,7 @@ class AVL():
                 return node
             if chave < node.chave:
                 node = node.left
-            elif node > node.chave:
+            elif chave > node.chave:
                 node = node.right
         raise ValueError('Node não está na árvore')
 
@@ -206,31 +204,7 @@ class AVL():
         self._checkBalance(node)
         return node
 
-    def levelOrder(self, node='root'):
-        node = self.root if node == 'root' else node
-        q = Queue()
-        q.push(node)
-        while not q.isEmpty():
-            node = q.pop()
-            if node.left:
-                q.push(node.left)
-            print(node.valor)
-            if node.right:
-                q.push(node.right)
+    def inserirLista(self, lista):
+        for i in lista:
+            self.insert(i)
 
-
-tree = AVL()
-dicionario = {1:2, 4:8, 5:10, 6:12, 2:4, 3:6, 10:20, 9:18}
-for k, v in dicionario.items():
-    tree.insert(k, valor=v)
-
-tree.delete(10)
-tree.delete(5)
-tree.inOrder()
-print()
-tree.inOrder(chave=True)
-print()
-print(tree.getHeight(), tree.size)
-print()
-print(tree.getHeight(), tree.size)
-tree.levelOrder()
