@@ -3,10 +3,7 @@ from estruturadedados.queue import Queue
 from biometria.biometria import Biometria as Bio
 from bancodedados.paths import *
 from os import listdir
-import tkinter as tk
-from tkinter import filedialog
-root = tk.Tk()
-root.withdraw()
+
 
 class GerenciadorPrincipal():
     
@@ -65,11 +62,6 @@ class GerenciadorBiometria():
         nomes = self.pegarNomes()
         self.arvoreBiometrias.inserirLista(nomes)
 
-    def _carregarArvore(self, lista):
-        arvore = AVL()
-        arvore.inserirLista(lista)
-        return arvore
-
     def compararBiometria(self, path):
         nome = nameFromPath(path)
         caminho = caminhoFromPath(path)
@@ -79,8 +71,13 @@ class GerenciadorBiometria():
             biometriaBD = self.biometria.leArquivo(biometriaBD.chave)
             arvoreTeste = self._carregarArvore(biometriaTeste)
             arvoreBD = self._carregarArvore(biometriaBD)
-            return self._igual(arvoreBD.root, arvoreTeste.root)
-        return False
+            return print(self._igual(arvoreBD.root, arvoreTeste.root))
+        return print(False)
+
+    def _carregarArvore(self, lista):
+        arvore = AVL()
+        arvore.inserirLista(lista)
+        return arvore
 
     def _procurarBiometria(self, chave):
         try:
